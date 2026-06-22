@@ -2,6 +2,9 @@
 
 A clean, minimal weather app built with **Vue 3** and **TypeScript** that shows your current conditions and a 7-day forecast based on your real location.
 
+<img width="1919" height="974" alt="image" src="https://github.com/user-attachments/assets/3730b1df-5e5e-4adc-9263-a73423258198" />
+
+
 ## Features
 
 - 📍 Auto-detects your location via the browser's Geolocation API
