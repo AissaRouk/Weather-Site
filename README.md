@@ -1,42 +1,59 @@
-# weatherSite
+# 🌤️ Weather App
 
-This template should help get you started developing with Vue 3 in Vite.
+A clean, minimal weather app built with **Vue 3** and **TypeScript** that shows your current conditions and a 7-day forecast based on your real location.
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- 📍 Auto-detects your location via the browser's Geolocation API
+- 🌡️ Shows current temperature and weather conditions
+- 📅 7-day daily forecast with icons and mean temperatures
+- 🌍 Displays your timezone automatically
+- ⚡ Powered by the free [Open-Meteo API](https://open-meteo.com/) — no API key needed
 
-## Recommended Browser Setup
+## Tech Stack
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- [Vue 3](https://vuejs.org/) with `<script setup>` and TypeScript
+- [VueUse](https://vueuse.org/) — `useGeolocation` for location access
+- [Open-Meteo API](https://open-meteo.com/) — free weather data
+- [Bootstrap](https://getbootstrap.com/) — layout and utilities
 
-## Type Support for `.vue` Imports in TS
+## Getting Started
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
+# Install dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Run the development server
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Then open your browser and allow location access when prompted.
 
-```sh
-npm run build
+## How It Works
+
+1. The app requests your browser's geolocation on load.
+2. Coordinates are sent to the Open-Meteo API to fetch current weather and a 7-day forecast.
+3. Weather codes are mapped to emojis (☀️ 🌤️ 🌧️ ❄️ ⛈️ etc.) for a clean visual display.
+
+## Weather Icons
+
+| Code | Condition | Icon |
+|------|-----------|------|
+| 0 | Clear sky | ☀️ |
+| 1–3 | Partly cloudy | 🌤️ |
+| 45–48 | Fog | 🌫️ |
+| 51–67 | Rain | 🌧️ |
+| 71–77 | Snow | ❄️ |
+| 80–82 | Rain showers | 🌦️ |
+| 95 | Thunderstorm | ⛈️ |
+
+## Customization
+
+The app uses CSS custom properties for theming. Define these in your global styles:
+
+```css
+:root {
+  --secondary-color: /* forecast panel background */;
+  --third-color:     /* day label text color */;
+}
 ```
